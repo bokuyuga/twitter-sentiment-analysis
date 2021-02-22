@@ -38,7 +38,7 @@ if __name__ == '__main__':
     if TRAIN:
         predictions = classify(TRAIN_PROCESSED_FILE, test_file=(not TRAIN), positive_words=POSITIVE_WORDS_FILE, negative_words=NEGATIVE_WORDS_FILE)
         correct = sum([1 for p in predictions if p[1] == p[2]]) * 100.0 / len(predictions)
-        print 'Correct = %.2f%%' % correct
+        print('Correct = %.2f%%' % correct)
     else:
         predictions = classify(TEST_PROCESSED_FILE, test_file=(not TRAIN), positive_words=POSITIVE_WORDS_FILE, negative_words=NEGATIVE_WORDS_FILE)
         utils.save_results_to_csv(predictions, 'baseline.csv')
